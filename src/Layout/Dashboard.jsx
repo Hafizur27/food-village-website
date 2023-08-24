@@ -1,17 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
 import {
   FaAlignJustify,
-  FaBook,
   FaCalendar,
   FaHome,
   FaShoppingCart,
-  FaUsers,
+
   FaUtensils,
   FaWallet,
 } from "react-icons/fa";
 import useCart from "../Hooks/useCart";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Dashboard = () => {
+  const [user] = useContext(AuthContext);
     const [cart] = useCart();
   return (
     <div className="drawer drawer-mobile">
@@ -28,7 +30,7 @@ const Dashboard = () => {
       <div className="drawer-side bg-[#D1A054]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 text-base-content">
-          {isAdmin ? (
+          {user ? (
             <>
               <li>
                 <NavLink to="/dashboard/adminHome">
@@ -38,21 +40,6 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/addItem">
                   <FaUtensils></FaUtensils> Add an Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manageItems">
-                  <FaWallet></FaWallet>Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/history">
-                  <FaBook></FaBook>Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allusers">
-                  <FaUsers></FaUsers>All Users
                 </NavLink>
               </li>
             </>
