@@ -6,7 +6,8 @@ const SignUp = () => {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      hhhhhhuhafjhgjhjhf
+      hhhhhhuhafjhgjhjhfuuuuuu
+      <p>jjjj</p>
     </div>
   );
 };
